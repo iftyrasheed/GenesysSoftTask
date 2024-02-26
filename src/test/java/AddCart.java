@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import java.time.Duration;
 
 public class AddCart extends BaseClass{
@@ -19,7 +18,7 @@ public class AddCart extends BaseClass{
         JavascriptExecutor js = (JavascriptExecutor)driver;
         js.executeScript("window.scrollBy(0,1700)");
 
-
+        // wait till element visibility
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='swatch-opt-1556']//div[@id" +
@@ -39,6 +38,7 @@ public class AddCart extends BaseClass{
                 .moveToElement(hoverable)
                 .perform();
 
+        // wait till element visibility
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@class='actions-primary'])[1]")));
 
         driver.findElement(By.xpath("(//div[@class='actions-primary'])[1]")).click();
@@ -47,6 +47,7 @@ public class AddCart extends BaseClass{
         JavascriptExecutor js2 = (JavascriptExecutor)driver;
         js2.executeScript("window.scrollBy(0,-1700)");
 
+        // wait till arrival of success message
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-bind='html: $parent" +
                 ".prepareMessageForHtml" +
                 "(message.text)']")));
